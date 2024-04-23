@@ -18,16 +18,16 @@ public class AshwinPersonController {
     @Autowired
     private AshwinPersonService ser;
 
-    @PostMapping("/AshwinPerson")
-    public ResponseEntity<AshwinPerson> post(@RequestBody AshwinPerson AshwinPerson) {
-        if (ser.post(AshwinPerson)) {
-            return new ResponseEntity<>(AshwinPerson, HttpStatus.CREATED);
+    @PostMapping("/person")
+    public ResponseEntity<AshwinPerson> post(@RequestBody AshwinPerson person) {
+        if (ser.post(person)) {
+            return new ResponseEntity<>(person, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/AshwinPerson/findByLastnameNot")
+    @GetMapping("/person/findByLastnameNot")
     public ResponseEntity<List<AshwinPerson>> getAll(@RequestParam String lastname) {
         List<AshwinPerson> li = ser.start(lastname);
         if (li.size() > 0) {
@@ -37,7 +37,7 @@ public class AshwinPersonController {
         }
     }
 
-    @GetMapping("/AshwinPerson/findByAgeNotIn")
+    @GetMapping("/person/findByAgeNotIn")
     public ResponseEntity<List<AshwinPerson>> getbyAge(@RequestParam List<Integer> ages) {
         List<AshwinPerson> li = ser.end(ages);
         if (li.size() > 0) {

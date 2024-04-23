@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
-import com.example.springapp.model.AshwinModel;
+import com.example.springapp.model.AshwinPerson;
 import com.example.springapp.service.AshwinPersonService;
 
 @RestController
@@ -18,7 +18,7 @@ public class AshwinPersonController {
     private AshwinPersonService ser;
 
     @PostMapping("/person")
-    public ResponseEntity<AshwinModel> post(@RequestBody AshwinModel person) {
+    public ResponseEntity<AshwinPerson> post(@RequestBody AshwinPerson person) {
         if (ser.post(person)) {
             return new ResponseEntity<>(person, HttpStatus.CREATED);
         } else {
@@ -27,8 +27,8 @@ public class AshwinPersonController {
     }
 
     @GetMapping("/person/startsWithName/{value}")
-    public ResponseEntity<List<AshwinModel>> getAll(@PathVariable String value) {
-        List<AshwinModel> li = ser.start(value);
+    public ResponseEntity<List<AshwinPerson>> getAll(@PathVariable String value) {
+        List<AshwinPerson> li = ser.start(value);
         if (li.size() > 0) {
             return new ResponseEntity<>(li, HttpStatus.OK);
         } else {
@@ -37,8 +37,8 @@ public class AshwinPersonController {
     }
 
     @GetMapping("/person/endsWithName/{value}")
-    public ResponseEntity<List<AshwinModel>> getbyAge(@PathVariable String value) {
-        List<AshwinModel> li = ser.end(value);
+    public ResponseEntity<List<AshwinPerson>> getbyAge(@PathVariable String value) {
+        List<AshwinPerson> li = ser.end(value);
         if (li.size() > 0) {
             return new ResponseEntity<>(li, HttpStatus.OK);
         } else {

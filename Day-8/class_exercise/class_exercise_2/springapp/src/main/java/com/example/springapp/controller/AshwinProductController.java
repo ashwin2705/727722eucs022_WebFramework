@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import com.example.springapp.model.AshwinProduct;
-import com.example.springapp.service.AshwinProductRview;
+import com.example.springapp.service.AshwinProductService;
 
 @RestController
 public class AshwinProductController {
     @Autowired
-    private AshwinProductRview ser;
+    private AshwinProductService ser;
 
     @PostMapping("/product")
     public ResponseEntity<AshwinProduct> post(@RequestBody AshwinProduct person) {

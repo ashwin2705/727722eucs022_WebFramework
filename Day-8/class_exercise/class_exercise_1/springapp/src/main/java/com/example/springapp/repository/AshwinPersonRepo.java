@@ -2,14 +2,14 @@ package com.example.springapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.springapp.model.AshwinModel;
+import com.example.springapp.model.AshwinPerson;
 import java.util.List;
 
 
 @Repository
-public interface AshwinPersonRepo extends JpaRepository<AshwinModel,Integer>{
+public interface AshwinPersonRepo extends JpaRepository<AshwinPerson,Integer>{
 
-    List<AshwinModel> findByNameStartingWith(String name);
-    List<AshwinModel> findByNameEndingWith(String name);
+    List<AshwinPerson> findByNameStartingWith(String name);
+    List<AshwinPerson> findByNameEndingWith(String name);
     
 }

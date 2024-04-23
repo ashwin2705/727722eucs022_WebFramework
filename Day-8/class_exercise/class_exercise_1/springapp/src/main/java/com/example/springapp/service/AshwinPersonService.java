@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springapp.model.AshwinModel;
+import com.example.springapp.model.AshwinPerson;
 import com.example.springapp.repository.AshwinPersonRepo;
 
 @Service
@@ -13,7 +13,7 @@ public class AshwinPersonService {
     @Autowired
     private AshwinPersonRepo rep;
 
-    public boolean post(AshwinModel person)
+    public boolean post(AshwinPerson person)
     {
         try
         {
@@ -26,12 +26,12 @@ public class AshwinPersonService {
         }
     }
 
-    public List<AshwinModel> start(String value)
+    public List<AshwinPerson> start(String value)
     {
         return rep.findByNameStartingWith(value);
     }
 
-    public List<AshwinModel> end(String value)
+    public List<AshwinPerson> end(String value)
     {
         return rep.findByNameEndingWith(value);
     }

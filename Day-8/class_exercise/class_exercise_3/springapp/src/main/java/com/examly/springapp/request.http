@@ -3,8 +3,8 @@ POST http://localhost:8080/Student
 Content-Type: application/json
 
 {
-     "id":124,
-     "name":"Nithish Kumar",
+     "id":12,
+     "name":"Ashwin",
      "marks":90
 }
 
